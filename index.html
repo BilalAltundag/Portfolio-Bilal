@@ -311,124 +311,54 @@
     </section>
     <br>
     <section class="project-section" id="blog">
-        <div class="container">
-            <h1 class="mb-5">My <span class="text-danger">Best</span> Github Projects</h1>
-          <div class="row">
-            <!-- project-card -->
-            <div class="project-card">
-              <div class="img-holder">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 1" width="150" height="150">
-              </div>
-              <div class="content-holder">
-                <h6 class="title">Project 1 Title</h6>
-      
-                <p></p>
-      
-                <p>Project 1 Description</p>
-      
-                <a href="https://github.com/BilalAltundag/project1" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-              </div>
-            </div><!-- end of project card -->
-      
-            <!-- project-card -->
-            <div class="project-card">
-              <div class="img-holder">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 2" width="150" height="150">
-              </div>
-              <div class="content-holder">
-                <h6 class="title">Project 2 Title</h6>
-      
-                <p></p>
-      
-                <p>Project 2 Description</p>
-      
-                <a href="https://github.com/BilalAltundag/project2" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-              </div>
-            </div><!-- end of project card -->
-      
-            <!-- project-card -->
-            <div class="project-card">
-              <div class="img-holder">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 3" width="150" height="150">
-              </div>
-              <div class="content-holder">
-                <h6 class="title">Project 3 Title</h6>
-      
-                <p></p>
-      
-                <p>Project 3 Description</p>
-      
-                <a href="https://github.com/BilalAltundag/project3" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-              </div>
-            </div><!-- end of project card -->
-      
-          </div>
-        </div>
-      </section>
-      
-      <script>
-        // GitHub kullanıcı adınızı ve API anahtarınızı girin
-        var username = "BilalAltundag";
-        var apiKey = "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";
-        var projectCount = 3;
-      
-        // GitHub API'sinden en çok yıldız alan projeleri almak için istek yapma
-        var apiUrl =
-          "https://api.github.com/search/repositories?q=user:" +
-          username +
-          "&sort=stars&order=desc&per_page=" +
-          projectCount;
-        var headers = {
-          Authorization: "Bearer " + apiKey,
-          "User-Agent": "My-GitHub-App"
-        };
-      
-        fetch(apiUrl, { headers: headers })
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            var projects = data.items;
-      
-            projects.forEach(function(project, index) {
-              var projectCard = document.getElementsByClassName("project-card")[index];
-              var imgHolder = projectCard.getElementsByClassName("img-holder")[0];
-              var title = projectCard.getElementsByClassName("title")[0];
-              var description = projectCard.getElementsByTagName("p")[1];
-              var readMoreLink = projectCard.getElementsByClassName("read-more")[0];
-      
-              var imageSrc = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
-              imgHolder.getElementsByTagName("img")[0].src = imageSrc;
-      
-              title.textContent = project.name;
-              description.textContent = project.description;
-              readMoreLink.href = project.html_url;
-      
-              // Stars ve Forks bilgilerini almak için API'den ayrı bir istek yapma
-              var badgesUrl = project.url + "/stats";
-              fetch(badgesUrl, { headers: headers })
-                .then(function(response) {
-                  return response.json();
-                })
-                .then(function(data) {
-                  var stars = data.stargazers_count;
-                  var forks = data.forks_count;
-      
-                  var starsBadge = projectCard.querySelector("span:nth-child(1) img");
-                  var forksBadge = projectCard.querySelector("span:nth-child(2) img");
-      
-                  starsBadge.alt = stars + " Stars";
-                  forksBadge.alt = forks + " Forks";
-                })
-                .catch(function(error) {
-                  console.log("Error: " + error);
-                });
-            });
-          })
-          .catch(function(error) {
-            console.log("Error: " + error);
-          });
-      </script>
+	  <div class="container">
+	    <h1 class="mb-5">My <span class="text-danger">Best</span> Github Projects</h1>
+	    <div class="row">
+	      <!-- project-card -->
+	      <div class="project-card">
+	        <div class="img-holder">
+	          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 1" width="150" height="150">
+	        </div>
+	        <div class="content-holder">
+	          <h6 class="title">Fashion Image Analysis</h6>
+	
+	          <p>Clothes images are uploaded by the user. First, the main categories bounding box, class, and segmentation results are obtained from the model trained with Detectron2. Then a prediction is returned in the classification models according to the main classes in the prediction. The dominant color of the last predicted classes is estimated.</p>
+	
+	          <a href="https://github.com/BilalAltundag/Fashion_analysis" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+	        </div>
+	      </div><!-- end of project card -->
+	
+	      <!-- project-card -->
+	      <div class="project-card">
+	        <div class="img-holder">
+	          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 2" width="150" height="150">
+	        </div>
+	        <div class="content-holder">
+	          <h6 class="title">Data Labeling and Computer Vision</h6>
+	
+	          <p>AutoTag-YOLOv8 is an object detection project that uses the YOLOv8 model and leverages the power of SAM and DINGO models for automatic labeling. This repository provides the code and resources needed to train the YOLOv8 model using custom datasets and perform automatic labeling on images using the SAM and DINGO models.</p>
+	
+	          <a href="https://github.com/BilalAltundag/AutoTag-YOLOv8-Instance-Segmentation-with-SAM-and-DINO-Model" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+	        </div>
+	      </div><!-- end of project card -->
+	
+	      <!-- project-card -->
+	      <div class="project-card">
+	        <div class="img-holder">
+	          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Project 3" width="150" height="150">
+	        </div>
+	        <div class="content-holder">
+	          <h6 class="title">Create database and deploy</h6>
+	
+	          <p>About Connecting the AWS RDS service to MySQL Workbench and creating and analyzing datasets.</p>
+	
+	          <a href="https://github.com/BilalAltundag/AWS_RDS_MySQL" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+	        </div>
+	      </div><!-- end of project card -->
+	
+	    </div>
+	  </div>
+	</section>
 
     <div class="section contact" id="contact">
         <div id="map" class="map"></div>
